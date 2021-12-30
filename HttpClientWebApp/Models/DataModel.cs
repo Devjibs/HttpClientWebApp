@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace HttpClientWebApp.Models
+﻿namespace HttpClientWebApp.Models
 {
-    public class CryptoModel
+    public class DataModel 
     {
         public int count { get; set; }
         public Entry[] entries { get; set; }

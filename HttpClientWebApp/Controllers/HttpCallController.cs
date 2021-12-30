@@ -8,23 +8,23 @@ namespace HttpClientWebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CryptoController : ControllerBase
+    public class HttpCallController : ControllerBase
     {
-        private readonly ICryptoService _cryptoService;
+        private readonly IHttpCallService _httpCallService;
 
-        public CryptoController(ICryptoService cryptoService)
+        public HttpCallController(IHttpCallService httpCallService)
         {
-            _cryptoService = cryptoService;
+            _httpCallService = httpCallService;
         }
 
 
         [HttpGet]
-        [Route("GetCryptoData")]
+        [Route("GetData")]
         public async Task<IActionResult> Get()
         {
             try
             {
-                var response = await _cryptoService.GetData<CryptoModel>();
+                var response = await _httpCallService.GetData<DataModel>();
                 return (response is null) ? NotFound(response) : Ok(response);
             }
             catch (Exception)
